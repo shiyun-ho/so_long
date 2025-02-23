@@ -6,7 +6,7 @@
 #    By: hshi-yun <hshi-yun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 11:22:45 by hshi-yun          #+#    #+#              #
-#    Updated: 2025/02/23 16:08:48 by hshi-yun         ###   ########.fr        #
+#    Updated: 2025/02/23 19:06:25 by hshi-yun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ else
     INCLUDES = -I/opt/X11/include -I${MLX_DIR}
 endif
 
-SRC = tutorial.c flood_fill.c \ 
+SRC = flood_fill.c  
 OBJ = ${SRC:.c=.o}
 
 LIBFT = ./libft

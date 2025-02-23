@@ -41,6 +41,31 @@ void	print_tab(char **area, t_point size)
 	}
 }
 
+void	fill(char **tab, t_point size, char target, int row, int col)
+{
+	if (row < 0 || col < 0 || row > size.y || col > size.x)
+		return ;
+	if (target == 'F' || tab[row][col] != target)
+		return ;
+
+	fill(tab, size, target, row - 1, col);
+	fill(tab, size, target, row + 1, col);
+	fill(tab, size, target, row, col - 1);
+	fill(tab, size, target, row - 1, col + 1);
+}
+
+void	flood_fill(char **tab, t_point size, t_point begin)
+{
+	char	target;
+	int		row;
+	int		col;
+
+	target = tab[begin.y][begin.x];
+	row = size.y;
+	col = size.x;
+	fill(tab, size, target, row, col);
+}
+
 int main()
 {
 	char	**area;
@@ -56,4 +81,9 @@ int main()
 	};
 	area = make_area(zone, size);
 	print_tab(area, size);
+
+	flood_fill(area, size, begin);
+	print_tab(area, size);
+
+	return (0);
 }
