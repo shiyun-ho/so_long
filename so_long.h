@@ -6,7 +6,7 @@
 /*   By: hshi-yun <hshi-yun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 17:30:56 by hshi-yun          #+#    #+#             */
-/*   Updated: 2025/03/08 21:31:50 by hshi-yun         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:40:54 by hshi-yun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-typedef struct	s_map
+/**
+ * @brief: Structure for validating map data before
+ * 			transitioning to game logic.
+ */
+typedef struct	s_map_val
 {
 	char	**grid;
-	int		x;
-	int		y;
-}				t_map;
+	int		rows;
+	int		cols;
+}				t_map_val;
 
 // Error Utils
 void	handle_error(char *error_msg);
