@@ -13,7 +13,7 @@
 #include "../libft/libft.h"
 #include "../so_long.h"
 
-int		calculate_rows(int fd, void *buffer, size_t count)
+int		calculate_rows(int fd, char *buffer, size_t count)
 {
 	int		i;
 	int		row_count;
@@ -31,13 +31,13 @@ int		calculate_rows(int fd, void *buffer, size_t count)
 	}
 }
 
-int		calculate_cols(int fd, void *buffer, size_t count)
+int		calculate_cols(int fd, char *buffer, size_t count)
 {
 	int		i;
 	int		col_count;
 
 	i = 0;
-	row_count = 0;
+	col_count = 0;
 	while (read(fd, buffer, count) > 0)
 	{
 		while (buffer[i])
@@ -60,13 +60,15 @@ char	**parse_map_to_2d_array(char *filename)
 	int		y;
 	int		x;
 
-	fd = open(filename, 0_RDONLY);
+	fd = open(filename, O_RDONLY);
 	map = NULL;
 	
 	// Count the rows and columns
 	/**
-	 * Should I validate and free the stufd lat
+	 * Should I validate and free the stuff later
 	 */
 	y = calculate_rows(fd, buffer, 10);
 	x = calculate_cols(fd, buffer, 10);
+	ft_printf("Rows: %d\n", y);
+	ft_printf("Cols: %d\n", x);
 }
